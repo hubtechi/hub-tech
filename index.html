@@ -1,31 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hub!Tech</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AkinaFarm</title>
 
-    <style>
-        body {
-            margin: 0;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #111;
-            font-family: Arial, sans-serif;
-        }
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
 
-        h1 {
-            color: white;
-            font-size: 4rem;
-            font-weight: bold;
-            font-style: italic;
-            margin: 0;
-        }
-    </style>
+body{
+    background:#f4f9f4;
+    color:#333;
+}
+
+header{
+    background:linear-gradient(135deg, #2e7d32, #81c784);
+    color:white;
+    text-align:center;
+    padding:80px 20px;
+}
+
+header h1{
+    font-size:3rem;
+    margin-bottom:10px;
+}
+
+header p{
+    font-size:1.2rem;
+}
+
+section{
+    padding:60px 20px;
+    text-align:center;
+}
+
+.about{
+    background:white;
+}
+
+.services{
+    background:#e8f5e9;
+}
+
+.card-container{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+    margin-top:30px;
+}
+
+.card{
+    background:white;
+    padding:25px;
+    width:250px;
+    border-radius:12px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+footer{
+    background:#1b5e20;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+</style>
 </head>
+
 <body>
-    <h1>hub!tech</h1>
+
+<header>
+    <h1>🌱 AkinaFarm</h1>
+    <p>Growing Fresh. Growing Naturally.</p>
+</header>
+
+<section class="about">
+    <h2>Welcome to AkinaFarm</h2>
+    <p style="max-width:700px; margin:20px auto;">
+        At AkinaFarm, we are committed to sustainable farming,
+        healthy produce, and responsible agriculture. We grow with
+        care to provide quality products for our community.
+    </p>
+</section>
+
+<section class="services">
+    <h2>What We Do</h2>
+
+    <div class="card-container">
+        <div class="card">
+            <h3>🥬 Fresh Produce</h3>
+            <p>Quality vegetables and farm products grown with care.</p>
+        </div>
+
+        <div class="card">
+            <h3>🐄 Livestock</h3>
+            <p>Healthy animals raised in a natural environment.</p>
+        </div>
+
+        <div class="card">
+            <h3>🌍 Sustainable Farming</h3>
+            <p>Practices that protect the environment and future generations.</p>
+        </div>
+    </div>
+</section>
+
+<section>
+    <h2>Our Vision</h2>
+    <p style="max-width:700px; margin:20px auto;">
+        To be a trusted farm known for quality, sustainability,
+        and a passion for feeding communities.
+    </p>
+</section>
+
+<footer>
+    <p>© 2026 AkinaFarm | Growing Fresh, Growing Naturally 🌱</p>
+</footer>
+
 </body>
-  </html>
+    </html>
