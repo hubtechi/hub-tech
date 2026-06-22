@@ -10,7 +10,7 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Arial, sans-serif;
+    font-family:Arial,sans-serif;
 }
 
 html{
@@ -23,22 +23,45 @@ body{
     line-height:1.6;
 }
 
-/* Dropdown Menu */
-.navbar{
+/* Hamburger Menu */
+.menu-btn{
     position:fixed;
     top:20px;
     right:20px;
+    background:#1b5e20;
+    color:white;
+    font-size:28px;
+    padding:10px 16px;
+    border-radius:10px;
+    cursor:pointer;
+    z-index:1001;
+    box-shadow:0 4px 10px rgba(0,0,0,.3);
+}
+
+.menu{
+    position:fixed;
+    top:80px;
+    right:20px;
+    width:220px;
+    background:white;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,.2);
+    overflow:hidden;
+    display:none;
     z-index:1000;
 }
 
-.navbar select{
-    padding:12px;
-    border:none;
-    border-radius:10px;
-    background:white;
-    box-shadow:0 4px 10px rgba(0,0,0,0.2);
-    font-size:16px;
-    cursor:pointer;
+.menu a{
+    display:block;
+    padding:15px;
+    text-decoration:none;
+    color:#1b5e20;
+    font-weight:bold;
+    border-bottom:1px solid #eee;
+}
+
+.menu a:hover{
+    background:#e8f5e9;
 }
 
 header{
@@ -77,7 +100,6 @@ h2{
     flex-wrap:wrap;
     gap:20px;
     justify-content:center;
-    margin-top:20px;
 }
 
 .card{
@@ -85,7 +107,12 @@ h2{
     padding:25px;
     border-radius:12px;
     width:300px;
-    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+    box-shadow:0 4px 10px rgba(0,0,0,.1);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
 }
 
 .card h3{
@@ -122,8 +149,6 @@ footer{
 
 .about-video video{
     position:absolute;
-    top:0;
-    left:0;
     width:100%;
     height:100%;
     object-fit:cover;
@@ -139,58 +164,66 @@ footer{
     align-items:center;
     text-align:center;
     color:white;
-    background:rgba(0,0,0,0.45);
+    background:rgba(0,0,0,.45);
     padding:20px;
 }
 
 .about-overlay h2{
     color:white;
     font-size:2.5rem;
-    margin-bottom:20px;
 }
 
 .about-overlay p{
     max-width:800px;
-    font-size:1.1rem;
-    line-height:1.8;
+    margin-top:20px;
+}
+
+@media(max-width:768px){
+    header h1{
+        font-size:2.2rem;
+    }
+
+    .card{
+        width:100%;
+    }
 }
 </style>
 </head>
-
 <body>
 
-<div class="navbar">
-<select onchange="goToSection(this.value)">
-<option value="">▼ Menu</option>
-<option value="about">About Us</option>
-<option value="vision">Vision & Mission</option>
-<option value="goals">Strategic Goals</option>
-<option value="approach">Our Approach</option>
-<option value="values">Core Values</option>
-<option value="target">Target</option>
-<option value="swot">SWOT Analysis</option>
-</select>
+<!-- Hamburger Button -->
+<div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+<!-- Menu -->
+<div class="menu" id="menu">
+    <a href="#home" onclick="closeMenu()">Home</a>
+    <a href="#about" onclick="closeMenu()">About Us</a>
+    <a href="#vision" onclick="closeMenu()">Vision & Mission</a>
+    <a href="#goals" onclick="closeMenu()">Strategic Goals</a>
+    <a href="#approach" onclick="closeMenu()">Our Approach</a>
+    <a href="#values" onclick="closeMenu()">Core Values</a>
+    <a href="#target" onclick="closeMenu()">Target</a>
+    <a href="#swot" onclick="closeMenu()">SWOT Analysis</a>
 </div>
 
-<header>
-<h1>🌱 Akina Ozele Farm</h1>
-<p>Building Sustainable Agriculture for Future Generations</p>
+<header id="home">
+    <h1>🌱 Akina Ozele Farm</h1>
+    <p>Building Sustainable Agriculture for Future Generations</p>
 </header>
 
 <section class="about-video" id="about">
-<video autoplay muted loop playsinline>
-<source src="farm-video.mp4" type="video/mp4">
-</video>
+    <video autoplay muted loop playsinline>
+        <source src="farm-video.mp4" type="video/mp4">
+    </video>
 
-<div class="about-overlay">
-<h2>About Us</h2>
-<p>
-Akina Ozele Farm is a registered farm investment enterprise established in 2025.
-The farm is committed to integrating forestry, livestock, and crop production
-into a sustainable agricultural ecosystem that promotes environmental conservation,
-food security, and economic growth.
-</p>
-</div>
+    <div class="about-overlay">
+        <h2>About Us</h2>
+        <p>
+            Akina Ozele Farm is a registered farm investment enterprise established in 2025.
+            The farm integrates forestry, livestock and crop production into a sustainable
+            ecosystem that promotes environmental conservation, food security and economic growth.
+        </p>
+    </div>
 </section>
 
 <section class="alt" id="vision">
@@ -203,25 +236,21 @@ food security, and economic growth.
 <h3>🌍 Vision</h3>
 <p>
 To design a biodiverse, self-sustaining agricultural ecosystem that produces
-high-value crops, ethically raised livestock, and timber while regenerating
-soil health and capturing carbon.
+high-value crops, ethically raised livestock and timber.
 </p>
 </div>
 
 <div class="card">
 <h3>🎯 Mission</h3>
 <p>
-To build a profitable, self-sustaining agricultural model that integrates
-forestry, livestock, and crop production while minimizing waste and improving
-soil health.
+To build a profitable, self-sustaining agricultural model while improving soil health.
 </p>
 </div>
 
 <div class="card">
 <h3>🏆 Overall Goal</h3>
 <p>
-To create a closed-loop ecosystem where each enterprise supports the others,
-maximizing biodiversity, soil health, and year-round economic resilience.
+To create a closed-loop ecosystem maximizing biodiversity and economic resilience.
 </p>
 </div>
 
@@ -231,44 +260,49 @@ maximizing biodiversity, soil health, and year-round economic resilience.
 
 <section id="goals">
 <div class="container">
-<h2>Strategic Goals (2026 - 2031)</h2>
+<h2>Strategic Goals (2026-2031)</h2>
 
 <ul>
-<li>Convert livestock manure and crop residues into high-quality organic compost.</li>
-<li>Establish agroforestry systems, boundary tree planting and silvopasture systems.</li>
-<li>Implement rainwater harvesting and soil conservation measures.</li>
-<li>Increase value addition through processing and packaging of farm products.</li>
-<li>Work towards organic certification for premium market opportunities.</li>
-<li>Promote active participation and leadership of women in agricultural development.</li>
+<li>Convert manure and crop residues into organic compost.</li>
+<li>Establish agroforestry systems.</li>
+<li>Implement rainwater harvesting.</li>
+<li>Increase value addition and packaging.</li>
+<li>Work toward organic certification.</li>
+<li>Promote women's participation in agriculture.</li>
 </ul>
+
 </div>
 </section>
 
 <section class="alt" id="approach">
 <div class="container">
+
 <h2>Our Approach</h2>
 
 <div class="card-container">
+
 <div class="card">
 <h3>🔬 Innovation</h3>
-<p>Use modern science and appropriate agricultural technologies.</p>
+<p>Modern science and agricultural technologies.</p>
 </div>
 
 <div class="card">
 <h3>🤝 Partnerships</h3>
-<p>Collaborate with farming communities, research institutions and development partners.</p>
+<p>Working with communities and institutions.</p>
 </div>
 
 <div class="card">
 <h3>📈 Value Chains</h3>
-<p>Strengthen agricultural commodity and forestry value chains.</p>
+<p>Strengthening agricultural and forestry value chains.</p>
 </div>
+
 </div>
 </div>
 </section>
 
 <section id="values">
 <div class="container">
+
 <h2>Core Values</h2>
 
 <div class="card-container">
@@ -279,17 +313,17 @@ maximizing biodiversity, soil health, and year-round economic resilience.
 <div class="card"><h3>🤝 Partnerships</h3></div>
 <div class="card"><h3>🌍 Climate Adaptation</h3></div>
 </div>
+
 </div>
 </section>
 
 <section class="alt" id="target">
 <div class="container">
+
 <h2>Target</h2>
 
-<p style="text-align:center; max-width:900px; margin:auto;">
-Akina Ozele Farm aims to develop and strengthen agribusiness ventures to achieve
-an annual turnover of UGX 1 Billion while empowering over 5,000 neighboring
-farmers through knowledge sharing, innovation, and sustainable agricultural practices.
+<p style="text-align:center;max-width:900px;margin:auto;">
+Akina Ozele Farm aims to achieve an annual turnover of UGX 1 Billion while empowering over 5,000 neighboring farmers through knowledge sharing and innovation.
 </p>
 
 </div>
@@ -297,28 +331,29 @@ farmers through knowledge sharing, innovation, and sustainable agricultural prac
 
 <section id="swot">
 <div class="container">
+
 <h2>SWOT Analysis</h2>
 
 <div class="card-container">
 
 <div class="card">
 <h3>💪 Strengths</h3>
-<p>Availability of skilled farming practitioners, supportive agricultural frameworks, and access to modern technologies.</p>
+<p>Skilled practitioners and access to technology.</p>
 </div>
 
 <div class="card">
 <h3>⚠ Weaknesses</h3>
-<p>High mechanization costs, expensive technologies, and limited adoption of innovations.</p>
+<p>High mechanization and technology costs.</p>
 </div>
 
 <div class="card">
 <h3>🚀 Opportunities</h3>
-<p>Growing food demand, regional markets, value addition, agricultural insurance, and expanding urban populations.</p>
+<p>Growing food demand and regional markets.</p>
 </div>
 
 <div class="card">
 <h3>🌩 Threats</h3>
-<p>Climate change, pests and diseases, inflation, price fluctuations, and unpredictable environmental conditions.</p>
+<p>Climate change and price fluctuations.</p>
 </div>
 
 </div>
@@ -330,12 +365,18 @@ farmers through knowledge sharing, innovation, and sustainable agricultural prac
 </footer>
 
 <script>
-function goToSection(id){
-    if(id){
-        document.getElementById(id).scrollIntoView({
-            behavior:"smooth"
-        });
+function toggleMenu(){
+    let menu=document.getElementById("menu");
+
+    if(menu.style.display==="block"){
+        menu.style.display="none";
+    }else{
+        menu.style.display="block";
     }
+}
+
+function closeMenu(){
+    document.getElementById("menu").style.display="none";
 }
 </script>
 
