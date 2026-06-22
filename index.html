@@ -13,10 +13,32 @@
     font-family:Arial, sans-serif;
 }
 
+html{
+    scroll-behavior:smooth;
+}
+
 body{
     background:#f4f9f4;
     color:#333;
     line-height:1.6;
+}
+
+/* Dropdown Menu */
+.navbar{
+    position:fixed;
+    top:20px;
+    right:20px;
+    z-index:1000;
+}
+
+.navbar select{
+    padding:12px;
+    border:none;
+    border-radius:10px;
+    background:white;
+    box-shadow:0 4px 10px rgba(0,0,0,0.2);
+    font-size:16px;
+    cursor:pointer;
 }
 
 header{
@@ -91,7 +113,8 @@ footer{
     text-align:center;
     padding:25px;
 }
-    .about-video{
+
+.about-video{
     position:relative;
     height:500px;
     overflow:hidden;
@@ -130,34 +153,47 @@ footer{
     max-width:800px;
     font-size:1.1rem;
     line-height:1.8;
-    }
+}
 </style>
 </head>
 
 <body>
 
+<div class="navbar">
+<select onchange="goToSection(this.value)">
+<option value="">▼ Menu</option>
+<option value="about">About Us</option>
+<option value="vision">Vision & Mission</option>
+<option value="goals">Strategic Goals</option>
+<option value="approach">Our Approach</option>
+<option value="values">Core Values</option>
+<option value="target">Target</option>
+<option value="swot">SWOT Analysis</option>
+</select>
+</div>
+
 <header>
-    <h1>🌱 Akina Ozele Farm</h1>
-    <p>Building Sustainable Agriculture for Future Generations</p>
+<h1>🌱 Akina Ozele Farm</h1>
+<p>Building Sustainable Agriculture for Future Generations</p>
 </header>
 
-<section class="about-video">
-    <video autoplay muted loop playsinline>
-        <source src="farm-video.mp4" type="video/mp4">
-    </video>
+<section class="about-video" id="about">
+<video autoplay muted loop playsinline>
+<source src="farm-video.mp4" type="video/mp4">
+</video>
 
-    <div class="about-overlay">
-        <h2>About Us</h2>
-        <p>
-            Akina Ozele Farm is a registered farm investment enterprise established in 2025.
-            The farm is committed to integrating forestry, livestock, and crop production
-            into a sustainable agricultural ecosystem that promotes environmental conservation,
-            food security, and economic growth.
-        </p>
-    </div>
+<div class="about-overlay">
+<h2>About Us</h2>
+<p>
+Akina Ozele Farm is a registered farm investment enterprise established in 2025.
+The farm is committed to integrating forestry, livestock, and crop production
+into a sustainable agricultural ecosystem that promotes environmental conservation,
+food security, and economic growth.
+</p>
+</div>
 </section>
 
-<section class="alt">
+<section class="alt" id="vision">
 <div class="container">
 <h2>Vision & Mission</h2>
 
@@ -193,7 +229,7 @@ maximizing biodiversity, soil health, and year-round economic resilience.
 </div>
 </section>
 
-<section>
+<section id="goals">
 <div class="container">
 <h2>Strategic Goals (2026 - 2031)</h2>
 
@@ -205,16 +241,14 @@ maximizing biodiversity, soil health, and year-round economic resilience.
 <li>Work towards organic certification for premium market opportunities.</li>
 <li>Promote active participation and leadership of women in agricultural development.</li>
 </ul>
-
 </div>
 </section>
 
-<section class="alt">
+<section class="alt" id="approach">
 <div class="container">
 <h2>Our Approach</h2>
 
 <div class="card-container">
-
 <div class="card">
 <h3>🔬 Innovation</h3>
 <p>Use modern science and appropriate agricultural technologies.</p>
@@ -229,29 +263,26 @@ maximizing biodiversity, soil health, and year-round economic resilience.
 <h3>📈 Value Chains</h3>
 <p>Strengthen agricultural commodity and forestry value chains.</p>
 </div>
-
 </div>
 </div>
 </section>
 
-<section>
+<section id="values">
 <div class="container">
 <h2>Core Values</h2>
 
 <div class="card-container">
-
 <div class="card"><h3>⭐ Excellence</h3></div>
 <div class="card"><h3>💡 Innovation</h3></div>
 <div class="card"><h3>🛡 Integrity</h3></div>
 <div class="card"><h3>🌾 Agribusiness Focus</h3></div>
 <div class="card"><h3>🤝 Partnerships</h3></div>
 <div class="card"><h3>🌍 Climate Adaptation</h3></div>
-
 </div>
 </div>
 </section>
 
-<section class="alt">
+<section class="alt" id="target">
 <div class="container">
 <h2>Target</h2>
 
@@ -264,7 +295,7 @@ farmers through knowledge sharing, innovation, and sustainable agricultural prac
 </div>
 </section>
 
-<section>
+<section id="swot">
 <div class="container">
 <h2>SWOT Analysis</h2>
 
@@ -272,33 +303,22 @@ farmers through knowledge sharing, innovation, and sustainable agricultural prac
 
 <div class="card">
 <h3>💪 Strengths</h3>
-<p>
-Availability of skilled farming practitioners, supportive agricultural frameworks,
-and access to modern technologies.
-</p>
+<p>Availability of skilled farming practitioners, supportive agricultural frameworks, and access to modern technologies.</p>
 </div>
 
 <div class="card">
 <h3>⚠ Weaknesses</h3>
-<p>
-High mechanization costs, expensive technologies, and limited adoption of innovations.
-</p>
+<p>High mechanization costs, expensive technologies, and limited adoption of innovations.</p>
 </div>
 
 <div class="card">
 <h3>🚀 Opportunities</h3>
-<p>
-Growing food demand, regional markets, value addition, agricultural insurance,
-and expanding urban populations.
-</p>
+<p>Growing food demand, regional markets, value addition, agricultural insurance, and expanding urban populations.</p>
 </div>
 
 <div class="card">
 <h3>🌩 Threats</h3>
-<p>
-Climate change, pests and diseases, inflation, price fluctuations,
-and unpredictable environmental conditions.
-</p>
+<p>Climate change, pests and diseases, inflation, price fluctuations, and unpredictable environmental conditions.</p>
 </div>
 
 </div>
@@ -308,6 +328,16 @@ and unpredictable environmental conditions.
 <footer>
 <p>© 2026 Akina Ozele Farm | Sustainable Agriculture • Forestry • Livestock 🌱</p>
 </footer>
+
+<script>
+function goToSection(id){
+    if(id){
+        document.getElementById(id).scrollIntoView({
+            behavior:"smooth"
+        });
+    }
+}
+</script>
 
 </body>
     </html>
